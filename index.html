@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CCXP22</title>
+</head>
+<body>
+    <header>
+        <figure>
+            <img src="img/ccxp.svg" alt="">
+        </figure>
+    </header>
+    <main class="container">
+        <div id="content" class="center">
+            <h1>REVIVA O ÉPICO</h1>
+            <h3>DE 01 A 04 DE DEZEMBRO</h3>
+            <p>Você consegue sentir? É aquela sensação de finalmente poder falar em voz alta: "estamos em casa". Sim, em dezembro de 2022, teremos a volta da CCXP física. Mas não será qualquer CCXP, vai ser a maior de todos os tempos. Prepare-se para visitar seus universos favoritos, explorar o Artists' Valley, se emocionar nos auditórios e encontrar aventuras épicas a cada passo pelos nossos corredores.</p>
+        </div>
+        <div id="time" class="center">
+            <ul>
+                <li id="dia">03D</li>
+                <li id="hora">01H</li>
+                <li id="minuto">01M</li>
+                <li id="segundo">01S</li>
+            </ul>
+            <h3>PARA A MAIOR CCXP DE TODOS OS TEMPOS</h3>
+            <video autoplay muted loop><source src="video/Arlequina.mp4" type="video/mp4"></video>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>AINDA DÁ TEMPO DE GARANTIR O SEU, MAS CORRE!</p>
+            <figure>
+                <img src="img/img1.svg" alt="Ingresso Quinta">
+                <img src="img/img2.svg" alt="Ingresso Sexta">
+                <img src="img/img3.svg" alt="Ingresso Sábado">
+                <img src="img/img4.svg" alt="Ingresso Domingo">
+            </figure>
+        </div>
+        <div id="button">
+            <button>GARANTA O SEU!</button>
+        </div>
+    </footer>
+    <script>
+    const dia = document.getElementById('dia')
+    const hora = document.getElementById('hora')
+    const minuto = document.getElementById('minuto')
+    const segundo = document.getElementById('segundo')
+
+    const lancamento = "04 apr 2022"
+    const lancamento = "01 dec 2023"
+
+    function countDown() {
+    const dataLancamento = new Date(lancamento);
+    const hoje = new Date();
+    const segundosTotal = (dataLancamento - hoje) / 1000;
+    const finalDias = Math.floor (segundosTotal / 60 / 60 / 24);
+    const finalHoras = Math.floor (segundosTotal / 60 / 60) % 24;
+    const finalMinutos = Math.floor (segundosTotal / 60) % 60;
+    const finalSegundos = Math.floor (segundosTotal) % 60;
+    dia.innerHTML = formatoTempo(finalDias)+'D';
+    hora.innerHTML = formatoTempo(finalHoras)+'H';
+    minuto.innerHTML = formatoTempo(finalMinutos)+'M';
+    segundo.innerHTML = formatoTempo(finalSegundos)+'S';
+    }
+    function formatoTempo (tempo){
+        return tempo < 10? '0'+tempo : tempo; 
+    }
+    countDown();
+    setInterval(countDown, 1000)
+</script>
+</body>
+</html>
